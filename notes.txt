@@ -2,7 +2,7 @@
 
 ### Prerequisites
 
-- Ensure Elixir 1.11 or higher is installed.
+- Ensure Elixir 1.12 is installed.
 - Ensure Postgres 13 is installed.
 - If your Postgres installation doesn't have a `postgres` user with password `postgres`, update the configuration in `config/dev.exs` to use the correct credentials for your system.
 

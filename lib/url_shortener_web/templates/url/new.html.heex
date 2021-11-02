@@ -1,5 +1,5 @@
 <section>
-  Welcome to the URL Shortener! Enter the URL you'd like to shorten below.
+  <p>Welcome to the URL Shortener! Enter the URL you'd like to shorten below.</p>
 
   <%= form_for @changeset, Routes.url_path(@conn, :create), [], fn f -> %>
       <%= if @changeset.action do %>

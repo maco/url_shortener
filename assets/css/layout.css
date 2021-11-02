@@ -1,0 +1,23 @@
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+
+header {
+    flex-grow: 0;
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+main.container {
+    padding: 1em;
+}
+
+.the_rest {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    flex-grow: 1;
+}

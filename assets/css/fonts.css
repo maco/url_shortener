@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Monoton&family=Ubuntu&display=swap');
+
+
+h1 {
+    font-family: Monoton;
+    font-size: 5rem;
+}
+
+main {
+    font-size: 1.8rem;
+    font-family: Ubuntu;
+}
+
+button {
+    font-family: Ubuntu;
+    font-size: 1.1rem;
+    text-transform: none;
+}
+
+input {
+    font-family: Ubuntu;
+}
