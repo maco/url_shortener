@@ -16,3 +16,5 @@
 Some things may seem unnecessary, like a `change_url()` function, but a future use-case could involve users being able to log in and manage the short URLs they've created, changing where they point.
 
 In that case, it might also make sense to get rid of the check that prevents the same URL being shortened twice. Perhaps it should be saved separately for different users so they can have separate usage statistics.
+
+I didn't include pre-commit hooks (only GitHub CI actions) because I've usually done that using the Python pre-commit package, and adding a Python dependency seemed excessive.
