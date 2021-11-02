@@ -8,7 +8,8 @@
           </div>
       <% end %>
       <div>
-        <%= text_input f, :target, placeholder: "Target URL" %>
+        <%= label f, :target, "Target URL" %>
+        <%= text_input f, :target, placeholder: "ex: https://google.com/calendar" %>
         <%= error_tag f, :target %>
       </div>
       <%= submit "Shortenify!" %>

@@ -14,8 +14,7 @@ config :url_shortener,
 config :url_shortener, UrlShortenerWeb.Endpoint,
   url: [host: "localhost"],
   render_errors: [view: UrlShortenerWeb.ErrorView, accepts: ~w(html json), layout: false],
-  pubsub_server: UrlShortener.PubSub,
-  live_view: [signing_salt: "4tMsmgT3"]
+  pubsub_server: UrlShortener.PubSub
 
 # Configures the mailer
 #

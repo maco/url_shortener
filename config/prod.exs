@@ -13,6 +13,14 @@ config :url_shortener, UrlShortenerWeb.Endpoint,
   url: [host: "example.com", port: 80],
   cache_static_manifest: "priv/static/cache_manifest.json"
 
+config :url_shortener, UrlShortener.Repo,
+  username: System.fetch_env!("DB_USER"),
+  password: System.fetch_env!("DB_PASSWORD"),
+  database: System.fetch_env!("DB_NAME"),
+  hostname: "localhost",
+  show_sensitive_data_on_connection_error: true,
+  pool_size: 10
+
 # Do not print debug messages in production
 config :logger, level: :info
 

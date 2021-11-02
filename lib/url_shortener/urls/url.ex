@@ -24,7 +24,6 @@ defmodule UrlShortener.Urls.Url do
     validate_change(changeset, :target, fn :target, target ->
       case URI.parse(target) do
         %URI{host: ""} ->
-          IO.puts("hello")
           [{:target, "Invalid URL: missing host"}]
 
         %URI{host: "" <> _, scheme: "" <> _} ->
