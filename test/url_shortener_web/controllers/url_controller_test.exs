@@ -2,7 +2,8 @@ defmodule UrlShortenerWeb.UrlControllerTest do
   use UrlShortenerWeb.ConnCase
 
   @valid_target %{"url" => %{"target" => "http://google.com/calendar"}}
-  @invalid_target %{"url" => %{"target" => "google.com/calendar"}}
+  @missing_scheme %{"url" => %{"target" => "google.com/calendar"}}
+  @missing_host %{"url" => %{"target" => "https://"}}
 
 
   describe "initial load" do
@@ -21,8 +22,13 @@ defmodule UrlShortenerWeb.UrlControllerTest do
     end
 
     test "missing url scheme", %{conn: conn} do
-      conn = post(conn, "/", @invalid_target)
+      conn = post(conn, "/", @missing_scheme)
       assert html_response(conn, 200) =~ "missing scheme"
+    end
+
+    test "missing url host", %{conn: conn} do
+      conn = post(conn, "/", @missing_host)
+      assert html_response(conn, 200) =~ "missing host"
     end
   end
 
