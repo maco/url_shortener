@@ -5,7 +5,6 @@ defmodule UrlShortenerWeb.UrlControllerTest do
   @missing_scheme %{"url" => %{"target" => "google.com/calendar"}}
   @missing_host %{"url" => %{"target" => "https://"}}
 
-
   describe "initial load" do
     test "GET /", %{conn: conn} do
       conn = get(conn, "/")
@@ -34,6 +33,7 @@ defmodule UrlShortenerWeb.UrlControllerTest do
 
   describe "GET url" do
     setup [:create_url]
+
     test "redirects to the shortened url", %{conn: conn, url: %{target: target, slug: slug}} do
       conn = get(conn, "/x/#{slug}")
       assert ^target = redirected_to(conn, 302)

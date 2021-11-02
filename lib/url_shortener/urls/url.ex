@@ -26,8 +26,10 @@ defmodule UrlShortener.Urls.Url do
         %URI{host: ""} ->
           IO.puts("hello")
           [{:target, "Invalid URL: missing host"}]
+
         %URI{host: "" <> _, scheme: "" <> _} ->
           []
+
         %URI{scheme: nil} ->
           [{:target, "Invalid URL: missing scheme (ex: 'http://' or 'https://')"}]
       end
