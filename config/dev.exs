@@ -2,9 +2,9 @@ import Config
 
 # Configure your database
 config :url_shortener, UrlShortener.Repo,
-  username: "postgres",
-  password: "postgres",
-  database: "url_shortener_dev",
+  username: System.get_env("DB_USER", "postgres"),
+  password: System.get_env("DB_PASSWORD", "postgres"),
+  database: System.get_env("DB_NAME", "url_shortener_dev"),
   hostname: "localhost",
   show_sensitive_data_on_connection_error: true,
   pool_size: 10

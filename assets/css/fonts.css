@@ -1,19 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Monoton&family=Ubuntu&display=swap');
 
+html {
+    /* ugh framework overrode the base font to 62.5% ie 10px.
+       undoing that. 16px base font exists for good reasons.
+    */
+    font-size: 100%;
+}
 
 h1 {
     font-family: Monoton;
-    font-size: 5rem;
+    font-size: 4rem;
 }
 
 main {
-    font-size: 1.8rem;
+    font-size: 1.3rem;
     font-family: Ubuntu;
 }
 
 button {
     font-family: Ubuntu;
-    font-size: 1.1rem;
+    font-size: 1rem;
     text-transform: none;
 }
 

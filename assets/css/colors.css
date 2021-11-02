@@ -18,5 +18,5 @@ main {
 }
 
 button {
-    background-color: #5f996e;
+    background-color: #3c6346; /* 6.85 contrast ratio with white */
 }
