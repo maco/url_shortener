@@ -1,3 +1,5 @@
+# URL Shortener
+
 ## Setup
 
 ### Prerequisites
@@ -10,6 +12,18 @@
 - `mix deps.get`
 - `mix ecto.create`
 - `mix ecto.migrate`
+
+## Usage
+
+1. `mix phx.server`
+1. Navigate to http://localhost:4000/
+1. Input a URL and press "shortenify!" button
+
+If you input an invalid URL (missing the "http(s)://" or having _only_ the "http(s)://"), you will get an error.
+
+If you input a URL that has already been shortened, you won't get a new short URL for it. You'll get the same one as before.
+
+If you copy the URL provided by the app into a browser window and hit enter, you'll be redirected to the website you initially put in.
 
 ## Decisions
 
