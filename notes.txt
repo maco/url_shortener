@@ -1,0 +1,18 @@
+## Setup
+
+### Prerequisites
+
+- Ensure Elixir 1.11 or higher is installed.
+- Ensure Postgres 10 or higher is installed.
+- If your Postgres installation doesn't have a `postgres` user with password `postgres`, update the configuration in `config/dev.exs` to use the correct credentials for your system.
+
+### Get dependencies and set up database
+- `mix deps.get`
+- `mix ecto.create`
+- `mix ecto.migrate`
+
+## Decisions
+
+Some things may seem unnecessary, like a `change_url()` function, but a future use-case could involve users being able to log in and manage the short URLs they've created, changing where they point.
+
+Slugs are set to be the first 10 characters that result from base64 encoding. That provides a bitspace of 60. A birthday collision isn't expected to occur in that bitspace until there are 1_073_741_824 entries in the database (sqrt(2^bitspace)). This seems like a good start. (Source for equation: https://www.learnpythonwithrune.org/birthday-paradox-and-hash-function-collisions-by-example/ )
