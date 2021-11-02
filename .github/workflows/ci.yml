@@ -1,0 +1,15 @@
+on: push
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    name: OTP 23.2 / Elixir 1.12
+    steps:
+      - uses: actions/checkout@v2
+      - uses: erlef/setup-beam@v1
+        with:
+          otp-version: "23.2"
+          elixir-version: "1.12"
+      - run: mix deps.get
+      - run: mix test
+      - run: mix format --check-formatted
