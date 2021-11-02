@@ -1,15 +1,35 @@
 on: pull_request
 
+env:
+  MIX_ENV: test
 jobs:
   test:
     runs-on: ubuntu-latest
     name: OTP 23.2 / Elixir 1.12
+    services:
+      postgres:
+        image: postgres:13
+        ports:
+          - 5432:5432
+        env:
+          POSTGRES_PASSWORD: postgres
+          options: >-
+            --health-cmd pg_isready
+            --health-interval 10s
+            --health-timeout 5s
+            --health-retries 5
+
     steps:
       - uses: actions/checkout@v2
       - uses: erlef/setup-beam@v1
         with:
           otp-version: "23.2"
           elixir-version: "1.12"
-      - run: mix deps.get
-      - run: mix test
-      - run: mix format --check-formatted
+      - name: Install dependencies
+        run: mix deps.get
+      - name: Check formatting
+        run: mix format --check-formatted
+      - name: Run tests
+        run: mix test
+      - name: Check compile warnings
+        run: mix compile --warnings-as-errors --all-warnings
